@@ -6,6 +6,12 @@ const Quiz = () => {
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
 
+  const resetQuiz = () => {
+    setCurrentQuestion(0);
+    setScore(0);
+    setShowResult(false);
+  };
+
   return <h1 className="font-bold">Quiz</h1>;
 };
 
