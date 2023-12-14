@@ -1,11 +1,18 @@
 import './App.css';
+import Quiz from './Quiz';
 
 function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-  )
+    <div className="App">
+      
+        <h1 className='font-bold text-3xl'>Friends Quiz</h1>
+      
+      <main>
+        <Quiz />
+      </main>
+      
+    </div>
+  );
 }
 
 export default App;
