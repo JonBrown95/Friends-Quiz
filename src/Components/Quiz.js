@@ -6,6 +6,7 @@ const Quiz = () => {
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
 
+  // logic for resetting the quiz back to the beginning.
   const resetQuiz = () => {
     setCurrentQuestion(0);
     setScore(0);
@@ -29,12 +30,24 @@ const Quiz = () => {
 
   return (
     <div className="max-w-md mx-auto p-4 bg-gray-100 rounded-lg shadow-md">
+      <h2>Score - {score}</h2>
       {!showResult && (
         <div>
           <h2 className="text-lg font-semibold mb-4">
-            Question {currentQuestion + 1}
+            Question {currentQuestion + 1} - 
           </h2>
           <h3 className="text-xl mb-4">{quizData[currentQuestion].question}</h3>
+          <div className="grid gap-3">
+            {quizData[currentQuestion].options.map((option, index) => (
+              <button
+                key={index}
+                className="bg-blue-400 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+                onClick={() => handleAnswerClick(option)}
+              >
+                {option}
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </div>
