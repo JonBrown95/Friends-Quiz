@@ -30,11 +30,10 @@ const Quiz = () => {
 
   return (
     <div className="max-w-md mx-auto p-4 bg-gray-100 rounded-lg shadow-md">
-      <h2>Score - {score}</h2>
-      {!showResult && (
+      {!showResult ? (
         <div>
           <h2 className="text-lg font-semibold mb-4">
-            Question {currentQuestion + 1} - 
+            Question {currentQuestion + 1} -
           </h2>
           <h3 className="text-xl mb-4">{quizData[currentQuestion].question}</h3>
           <div className="grid gap-3">
@@ -48,6 +47,11 @@ const Quiz = () => {
               </button>
             ))}
           </div>
+        </div>
+      ) : (
+        <div>
+          <h2 className="text-lg font-semibold mb-4">Result</h2>
+          <p>Your score: {score}</p>
         </div>
       )}
     </div>
