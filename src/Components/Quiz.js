@@ -28,7 +28,16 @@ const Quiz = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-4 bg-gray-100 rounded-lg shadow-md"></div>
+    <div className="max-w-md mx-auto p-4 bg-gray-100 rounded-lg shadow-md">
+      {!showResult && (
+        <div>
+          <h2 className="text-lg font-semibold mb-4">
+            Question {currentQuestion + 1}
+          </h2>
+          <h3 className="text-xl mb-4">{quizData[currentQuestion].question}</h3>
+        </div>
+      )}
+    </div>
   );
 };
 
