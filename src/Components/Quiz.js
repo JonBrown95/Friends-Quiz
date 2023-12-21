@@ -15,6 +15,11 @@ const Quiz = () => {
     setQuizStarted(false);
   };
 
+  // button that starts the quiz
+  const startQuiz = () => {
+    setQuizStarted(true);
+  };
+
   // logic for selecting answers
   const handleAnswerClick = (selectedAnswer) => {
     const currentAnswer = quizData[currentQuestion].answer;
