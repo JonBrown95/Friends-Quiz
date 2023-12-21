@@ -52,6 +52,9 @@ const Quiz = () => {
         <div>
           <h2 className="text-lg font-semibold mb-4">Result</h2>
           <p>Your score: {score}</p>
+          <button className="bg-blue-500 text-white " onClick={resetQuiz}>
+            Restart Quiz
+          </button>
         </div>
       )}
     </div>
