@@ -12,6 +12,7 @@ const Quiz = () => {
     setCurrentQuestion(0);
     setScore(0);
     setShowResult(false);
+    setQuizStarted(false);
   };
 
   // logic for selecting answers
