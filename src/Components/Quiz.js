@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import quizData from "../quizData";
 
 const Quiz = () => {
@@ -7,6 +7,21 @@ const Quiz = () => {
   const [showResult, setShowResult] = useState(false);
   const [quizStarted, setQuizStarted] = useState(false);
   const [timeLeft, setTimeLeft] = useState(60);
+
+  // logic for timer
+  useEffect(() => {
+    if (quizStarted && !showResult) {
+      const timer = setTimeout(() => {
+        if (timeLeft > 0) {
+          setTimeLeft(timeLeft - 1);
+        } else {
+          setShowResult(true);
+        }
+      }, 1000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [timeLeft, quizStarted, showResult]);
 
   // logic for resetting the quiz back to the beginning.
   const resetQuiz = () => {
@@ -48,6 +63,7 @@ const Quiz = () => {
       ) : !showResult ? (
         <div>
           <h2 className="text-lg font-semibold mb-4">
+          <p>Time Left: {timeLeft} seconds</p>
             Question {currentQuestion + 1} -
           </h2>
           <h3 className="text-xl mb-4">{quizData[currentQuestion].question}</h3>
