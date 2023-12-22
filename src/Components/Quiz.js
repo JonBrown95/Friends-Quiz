@@ -6,6 +6,7 @@ const Quiz = () => {
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [quizStarted, setQuizStarted] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(60);
 
   // logic for resetting the quiz back to the beginning.
   const resetQuiz = () => {
