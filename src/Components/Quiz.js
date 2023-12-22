@@ -29,6 +29,7 @@ const Quiz = () => {
     setScore(0);
     setShowResult(false);
     setQuizStarted(false);
+    setTimeLeft(60);
   };
 
   // button that starts the quiz
