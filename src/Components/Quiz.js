@@ -37,7 +37,14 @@ const Quiz = () => {
 
   return (
     <div className="max-w-md mx-auto p-4 bg-gray-100 rounded-lg shadow-md">
-      {!showResult ? (
+      {!quizStarted ? (
+        <div>
+          <p>Ready to start?</p>
+          <button className="bg-blue-500 text-white" onClick={startQuiz}>
+            Start Quiz
+          </button>
+        </div>
+      ) : !showResult ? (
         <div>
           <h2 className="text-lg font-semibold mb-4">
             Question {currentQuestion + 1} -
