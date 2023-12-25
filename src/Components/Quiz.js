@@ -58,7 +58,7 @@ const Quiz = () => {
         {!quizStarted ? (
           <div>
             <p>Ready to start?</p>
-            <button className="bg-blue-500 text-white" onClick={startQuiz}>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={startQuiz}>
               Start Quiz
             </button>
           </div>
@@ -87,7 +87,7 @@ const Quiz = () => {
           <div>
             <h2 className="text-lg font-semibold mb-4">Result</h2>
             <p>Your score: {score}</p>
-            <button className="bg-blue-500 text-white " onClick={resetQuiz}>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded " onClick={resetQuiz}>
               Restart Quiz
             </button>
           </div>
