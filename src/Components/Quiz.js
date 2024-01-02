@@ -54,7 +54,9 @@ const Quiz = () => {
 
   return (
     <div className="bg-gray-100 min-h-screen flex items-center justify-center">
-      <div className="w-[400px] h-[400px] p-6 bg-white rounded-lg shadow-md border border-gray-300 overflow-y-auto">
+      <div className="w-[400px] h-[400px] p-6 bg-white rounded-lg shadow-md border border-gray-300 overflow-y-auto"
+        role="region"
+        aria-labelledby="quiz-heading">
         {!quizStarted ? (
           <div>
             <p>Ready to start?</p>
@@ -77,6 +79,7 @@ const Quiz = () => {
                   key={index}
                   className="bg-blue-400 text-white px-4 py-2 rounded-md hover:bg-blue-600"
                   onClick={() => handleAnswerClick(option)}
+                  aria-label={`Option ${index + 1}: ${option}`}
                 >
                   {option}
                 </button>
