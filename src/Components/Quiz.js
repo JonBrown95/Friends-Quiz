@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import quizData from "../quizData";
+import initialQuizData from "../quizData";
 
 const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -7,6 +7,7 @@ const Quiz = () => {
   const [showResult, setShowResult] = useState(false);
   const [quizStarted, setQuizStarted] = useState(false);
   const [timeLeft, setTimeLeft] = useState(60);
+  const [quizData, setQuizData] = useState(initialQuizData);
 
   // logic for timer
   useEffect(() => {
@@ -34,6 +35,10 @@ const Quiz = () => {
 
   // button that starts the quiz
   const startQuiz = () => {
+    const shuffledQuizData = [...initialQuizData].sort(
+      () => Math.random() - 0.5
+    );
+    setQuizData(shuffledQuizData);
     setQuizStarted(true);
   };
 
@@ -54,13 +59,18 @@ const Quiz = () => {
 
   return (
     <div className="bg-gray-100 min-h-screen flex items-center justify-center">
-      <div className="w-[400px] h-[400px] p-6 bg-white rounded-lg shadow-md border border-gray-300 overflow-y-auto"
+      <div
+        className="w-[400px] h-[400px] p-6 bg-white rounded-lg shadow-md border border-gray-300 overflow-y-auto"
         role="region"
-        aria-labelledby="quiz-heading">
+        aria-labelledby="quiz-heading"
+      >
         {!quizStarted ? (
           <div>
             <p>Ready to start?</p>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={startQuiz}>
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              onClick={startQuiz}
+            >
               Start Quiz
             </button>
           </div>
@@ -90,7 +100,10 @@ const Quiz = () => {
           <div>
             <h2 className="text-lg font-semibold mb-4">Result</h2>
             <p>Your score: {score}</p>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded " onClick={resetQuiz}>
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "
+              onClick={resetQuiz}
+            >
               Restart Quiz
             </button>
           </div>
